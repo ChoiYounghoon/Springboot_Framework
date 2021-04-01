@@ -16,6 +16,7 @@ docker 설치 (mysql)
 
 참고
 ■ jdbc using password:YES ERROR
+해결방법 : jdbc datasource password 설정 부분 오타 확인
 2021-04-01 13:25:36,579 [Thread-7] ERROR com.zaxxer.hikari.pool.HikariPool(throwPoolInitializationException:593) - HikariPool-1 - Exception during pool initialization.
 java.sql.SQLException: Access denied for user 'username'@'172.18.0.1' (using password: YES)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129) ~[mysql-connector-java-8.0.23.jar:8.0.23]
