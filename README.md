@@ -15,6 +15,7 @@
 ![image](https://user-images.githubusercontent.com/16375921/113244361-d0a14100-92ef-11eb-9d1b-ea271952d0ff.png)
 
 5. docker 에 mysql, elasticsearch + kibana 
+![image](https://user-images.githubusercontent.com/16375921/113255973-79a56700-9303-11eb-94dd-119f9d22ab99.png)
 
 6. STS mybatipse 플러그인 설치
   - mybatis mapper.xml 에서 repository를 ctrl 키로 바로가기 가능
