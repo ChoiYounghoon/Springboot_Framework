@@ -14,8 +14,11 @@
 4. docker 설치 (mysql)
 ![image](https://user-images.githubusercontent.com/16375921/113244361-d0a14100-92ef-11eb-9d1b-ea271952d0ff.png)
 
-5. STS mybatipse 플러그인 설치
+5. docker 에 mysql, elasticsearch + kibana 
+
+6. STS mybatipse 플러그인 설치
   - mybatis mapper.xml 에서 repository를 ctrl 키로 바로가기 가능
+
 
 참고
 ■ jdbc using password:YES ERROR
