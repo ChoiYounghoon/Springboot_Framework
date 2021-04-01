@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info">
+
+<Properties>
+	<Property name="logNm">solution</Property>
+	<Property name="layoutPattern">%d [%t] %-5level %c(%M:%L) - %m%n</Property>
+</Properties>
+
+<Appenders>
+	<Console name="console" target="SYSTEM_OUT">
+		<PatternLayout pattern="${layoutPattern}" />
+	</Console>
+	<RollingFile name="file" fileName="/log/${logNm}.log" filePattern="/log/logs/${logNm}_%d{yyyy-MM-dd}_%i.log">
+	<PatternLayout pattern="${layoutPattern}" />
+	<Policies>
+		<SizeBasedTriggeringPolicy size="10MB" /> <!-- 10MB 용량이 초과시 DefaultRolloverStrategy 정책만큼 넘버링 -->      
+		<!-- TimeBasedTriggeringPolicy module="true" interval="1" />--> <!-- 일별 로그 파일 생성--> 
+	</Policies>
+	<DefaultRolloverStrategy max="500" fileIndex="min" /><!-- 롤링 파일 500개 까지 생성 -->
+	</RollingFile>
+</Appenders>
+
+<Loggers>
+	<!-- 스프링 프레임워크에서 찍는건 level을 info로 설정 -->
+	<logger name="org.springframework" level="info" additivity="false" >
+		<AppenderRef ref="console" />
+		<AppenderRef ref="file" />
+	</logger>
+	 
+	<!-- 다른 기본 패키지도 설정 제어 가능하다. -->
+	<logger name="org.apache.commons.digester" level="info" additivity="false" >
+		<AppenderRef ref="console" />
+		<AppenderRef ref="file" />
+	</logger>
+     
+	<!-- rolling file에는 debug, console에는 info 분리하여 처리 가능하다. -->
+	<logger name="kr.co.application" additivity="false" >
+		<AppenderRef ref="console" level="info" />
+		<AppenderRef ref="file" level="info" />
+	</logger>
+	
+	<!-- log4jdbc-log4j2 -->
+    <logger name="jdbc.sqlonly"    level="DEBUG"/>
+    <logger name="jdbc.sqltiming" level="INFO"/>
+    <logger name="jdbc.audit"    level="WARN"/>
+    <logger name="jdbc.resultset" level="ERROR"/>
+    <logger name="jdbc.resultsettable" level="ERROR"/>
+    <logger name="jdbc.connection" level="INFO"/>
+
+
+	<!-- 기본 레벨은 debug -->
+	<Root level="INFO" additivity="false" >
+		<AppenderRef ref="console" />
+		<AppenderRef ref="file" />
+	</Root>
+</Loggers>
+</Configuration>

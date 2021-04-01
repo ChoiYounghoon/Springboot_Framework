@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.application.repo.mapper.EmployeeHRmMapper">
+
+    <select id="selectEmployeeHRList" parameterType="kr.co.application.repo.dto.EmployeeHRmDTO" resultType="kr.co.application.repo.dto.EmployeeHRmDTO">
+        <![CDATA[
+        SELECT HrInfoChangDate, InOfficeHrSt, EmployeeName, EmployeeNo
+          FROM T_COM_EMPLOYEEHR_M
+        ]]>
+    </select>
+
+</mapper>
