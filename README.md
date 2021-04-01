@@ -1,18 +1,21 @@
 # Springboot_Framework
 
-목적 : 데몬 프로그램 개발용 프레임워크
+1. 목적 : 데몬 프로그램 개발용 프레임워크
 
-개발환경
+2. 개발환경
   - IDE : Spring Tool Suite 4 
   - SpringBoot : 2.4.4 (lombok, mybatis, devtools)
   - Java : openjdk(zulu) 11
   - DB : MySql
 
-lombok.jar 설치
+3. lombok.jar 설치
 ![image](https://user-images.githubusercontent.com/16375921/113245267-92a51c80-92f1-11eb-9141-11e47a3d52b3.png)
 
-docker 설치 (mysql)
+4. docker 설치 (mysql)
 ![image](https://user-images.githubusercontent.com/16375921/113244361-d0a14100-92ef-11eb-9d1b-ea271952d0ff.png)
+
+5. STS mybatipse 플러그인 설치
+  - mybatis mapper.xml 에서 repository를 ctrl 키로 바로가기 가능
 
 참고
 ■ jdbc using password:YES ERROR
