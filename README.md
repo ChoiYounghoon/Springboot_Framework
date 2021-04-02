@@ -17,12 +17,17 @@
 5. docker 에 mysql, elasticsearch + kibana 
 ![image](https://user-images.githubusercontent.com/16375921/113255973-79a56700-9303-11eb-94dd-119f9d22ab99.png)
 
+■ docker-elasticsearch run 에러 참고
+1) max_map_count 값 오류
+  wsl -d docker-desktop
+  sysctl -w vm.max_map_count=262144
+
+
 6. STS mybatipse 플러그인 설치
   - mybatis mapper.xml 에서 repository를 ctrl 키로 바로가기 가능
 
-
-참고
-■ jdbc using password:YES ERROR
+■ Spingboot 에러 참고
+1) jdbc using password:YES ERROR
 해결방법 : jdbc datasource password 설정 부분 오타 확인
 2021-04-01 13:25:36,579 [Thread-7] ERROR com.zaxxer.hikari.pool.HikariPool(throwPoolInitializationException:593) - HikariPool-1 - Exception during pool initialization.
 java.sql.SQLException: Access denied for user 'username'@'172.18.0.1' (using password: YES)
