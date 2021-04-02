@@ -2,26 +2,48 @@
 
 1. 목적 : 데몬 프로그램 개발용 프레임워크
 
+============================================================================================================================================================================
+
 2. 개발환경
   - IDE : Spring Tool Suite 4 
   - SpringBoot : 2.4.4 (lombok, mybatis, devtools)
   - Java : openjdk(zulu) 11
   - DB : MySql
 
+============================================================================================================================================================================
+
 3. lombok.jar 설치
 ![image](https://user-images.githubusercontent.com/16375921/113245267-92a51c80-92f1-11eb-9141-11e47a3d52b3.png)
+
+============================================================================================================================================================================
 
 4. docker 설치 (mysql)
 ![image](https://user-images.githubusercontent.com/16375921/113244361-d0a14100-92ef-11eb-9d1b-ea271952d0ff.png)
 
+============================================================================================================================================================================
+
 5. docker 에 mysql, elasticsearch + kibana 
 ![image](https://user-images.githubusercontent.com/16375921/113255973-79a56700-9303-11eb-94dd-119f9d22ab99.png)
+
+============================================================================================================================================================================
 
 ■ docker-elasticsearch run 에러 참고
 1) max_map_count 값 오류
   wsl -d docker-desktop
   sysctl -w vm.max_map_count=262144
+  
+2) docker 실행하자마자 에러나는경우 bash 접근 방법
+C:\Users\HP>docker images
+REPOSITORY                                      TAG       IMAGE ID       CREATED       SIZE
+docker101tutorial                               latest    b919573a306b   8 days ago    27.9MB
+mysql                                           latest    26d0ac143221   13 days ago   546MB
+docker.elastic.co/kibana/kibana                 7.12.0    7a6b1047dd48   2 weeks ago   1.05GB
+docker.elastic.co/elasticsearch/elasticsearch   7.12.0    9337ed510a0c   2 weeks ago   830MB
+alpine/git                                      latest    a939554ad0d0   5 weeks ago   25.1MB
 
+C:\Users\HP>docker run -it docker.elastic.co/kibana/kibana:7.12.0 bash
+
+============================================================================================================================================================================
 
 6. STS mybatipse 플러그인 설치
   - mybatis mapper.xml 에서 repository를 ctrl 키로 바로가기 가능
