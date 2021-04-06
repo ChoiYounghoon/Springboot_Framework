@@ -51,8 +51,29 @@ C:\Users\HP>docker run -it docker.elastic.co/kibana/kibana:7.12.0 bash
 6. STS mybatipse 플러그인 설치
   - mybatis mapper.xml 에서 repository를 ctrl 키로 바로가기 가능
 
+7. Maven build jar
+1) pom.xml 파일 수정
+<groupId>kr.co</groupId>
+	<artifactId>spring-boot-maven-plugin</artifactId>
+	<version>2.5.0-SNAPSHOT</version>
+	<name>solution</name>
+	<description>project for Spring Boot</description>
+	<packaging>jar</packaging>  <!-- packaging 추가 -->
+
+2) run configurations 설정
+![image](https://user-images.githubusercontent.com/16375921/113645249-7aeae100-96c1-11eb-8399-58bf93afb3a7.png)
 
 
+[INFO] [1m--- [0;32mmaven-jar-plugin:3.2.0:jar[m [1m(default-jar)[m @ [36mspring-boot-maven-plugin[0;1m ---[m
+[INFO] Building jar: C:\Users\HP\git\Springboot_Framework\solution_framework\target\spring-boot-maven-plugin-2.5.0-SNAPSHOT.jar
+[INFO] 
+[INFO] [1m--- [0;32mspring-boot-maven-plugin:2.4.4:repackage[m [1m(repackage)[m @ [36mspring-boot-maven-plugin[0;1m ---[m
+[INFO] Replacing main artifact with repackaged archive
+[INFO] [1m------------------------------------------------------------------------[m
+[INFO] [1;32mBUILD SUCCESS[m
+[INFO] [1m------------------------------------------------------------------------
+
+============================================================================================================================================================================
 
 ■ Spingboot 에러 참고
 1) jdbc using password:YES ERROR
