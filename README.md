@@ -1,24 +1,75 @@
 # Springboot_Framework
 
 1. 목적 : 데몬 프로그램 개발용 프레임워크
+           - Docker container 환경에서 mysql, elasticsearch, kibana 를 구성하고
+             springboot Framework 미들웨어를 개발하여, Docker 환경으로 배포
+	          * 해당 미들웨어는 DB 데이터를 읽어와 주기적으로 elasticsearch로 보낸다.
+	          
+=========================================================================================
 
 2. 개발환경
   - IDE : Spring Tool Suite 4 
+  - Deploy : Docker v20.10.5
   - SpringBoot : 2.4.4 (lombok, mybatis, devtools)
   - Java : openjdk(zulu) 11
   - DB : MySql
 
+=========================================================================================
+
 3. lombok.jar 설치
 ![image](https://user-images.githubusercontent.com/16375921/113245267-92a51c80-92f1-11eb-9141-11e47a3d52b3.png)
+
+=========================================================================================
 
 4. docker 설치 (mysql)
 ![image](https://user-images.githubusercontent.com/16375921/113244361-d0a14100-92ef-11eb-9d1b-ea271952d0ff.png)
 
-5. STS mybatipse 플러그인 설치
+=========================================================================================
+
+5. docker 에 mysql, elasticsearch + kibana (docker guide 참고 : https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html)
+![image](https://user-images.githubusercontent.com/16375921/113255973-79a56700-9303-11eb-94dd-119f9d22ab99.png)
+
+=========================================================================================
+
+■ docker-elasticsearch run 에러 참고
+1) max_map_count 값 오류
+  wsl -d docker-desktop
+  sysctl -w vm.max_map_count=262144
+  
+2) docker 실행하자마자 에러나는경우 bash 접근 방법
+C:\Users\HP>docker images
+REPOSITORY                                      TAG       IMAGE ID       CREATED       SIZE
+docker101tutorial                               latest    b919573a306b   8 days ago    27.9MB
+mysql                                           latest    26d0ac143221   13 days ago   546MB
+docker.elastic.co/kibana/kibana                 7.12.0    7a6b1047dd48   2 weeks ago   1.05GB
+docker.elastic.co/elasticsearch/elasticsearch   7.12.0    9337ed510a0c   2 weeks ago   830MB
+alpine/git                                      latest    a939554ad0d0   5 weeks ago   25.1MB
+
+C:\Users\HP>docker run -it docker.elastic.co/kibana/kibana:7.12.0 bash
+
+=========================================================================================
+
+6. STS mybatipse 플러그인 설치
   - mybatis mapper.xml 에서 repository를 ctrl 키로 바로가기 가능
 
-참고
-■ jdbc using password:YES ERROR
+7. Maven build jar
+1) pom.xml 파일 수정
+<groupId>kr.co</groupId>
+	<artifactId>spring-boot-maven-plugin</artifactId>
+	<version>2.5.0-SNAPSHOT</version>
+	<name>solution</name>
+	<description>project for Spring Boot</description>
+	<packaging>jar</packaging>  <!-- packaging 추가 -->
+
+2) run configurations 설정
+![image](https://user-images.githubusercontent.com/16375921/113645249-7aeae100-96c1-11eb-8399-58bf93afb3a7.png)
+
+![image](https://user-images.githubusercontent.com/16375921/113645420-d1f0b600-96c1-11eb-9265-c9eda9b66401.png)
+
+=========================================================================================
+
+■ Spingboot 에러 참고
+1) jdbc using password:YES ERROR
 해결방법 : jdbc datasource password 설정 부분 오타 확인
 2021-04-01 13:25:36,579 [Thread-7] ERROR com.zaxxer.hikari.pool.HikariPool(throwPoolInitializationException:593) - HikariPool-1 - Exception during pool initialization.
 java.sql.SQLException: Access denied for user 'username'@'172.18.0.1' (using password: YES)
