@@ -9,10 +9,11 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>kr.co</groupId>
-	<artifactId>spring</artifactId>
+	<artifactId>spring-boot-maven-plugin</artifactId>
 	<version>2.5.0-SNAPSHOT</version>
 	<name>solution</name>
 	<description>project for Spring Boot</description>
+	<packaging>jar</packaging>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -41,12 +42,7 @@
 			<optional>true</optional>
 		</dependency>		
 		
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		
+			
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
@@ -71,6 +67,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<!-- jar 파일을 dependencies와 연결해주는 설정 -->
 					<excludes>
 						<excllude>
 							<groupId>org.projectlombok</groupId>

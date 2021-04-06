@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.Properties;
 
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
@@ -38,7 +41,10 @@ public class AppConfig {
 			
 			ClassLoader loader = AppConfig.class.getClassLoader();
 			
-			File file = new File(loader.getResource("appconfig.properties").getFile());
+			PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+			Resource configResource = resolver.getResource("classpath:appconfig.properties");
+			
+			File file = configResource.getFile();
 			log.info("AppConfig Properties path : " + file.getAbsolutePath());
 			
 			Properties props = new Properties();
