@@ -63,15 +63,8 @@ C:\Users\HP>docker run -it docker.elastic.co/kibana/kibana:7.12.0 bash
 2) run configurations 설정
 ![image](https://user-images.githubusercontent.com/16375921/113645249-7aeae100-96c1-11eb-8399-58bf93afb3a7.png)
 
+![image](https://user-images.githubusercontent.com/16375921/113645420-d1f0b600-96c1-11eb-9265-c9eda9b66401.png)
 
-[INFO] [1m--- [0;32mmaven-jar-plugin:3.2.0:jar[m [1m(default-jar)[m @ [36mspring-boot-maven-plugin[0;1m ---[m
-[INFO] Building jar: C:\Users\HP\git\Springboot_Framework\solution_framework\target\spring-boot-maven-plugin-2.5.0-SNAPSHOT.jar
-[INFO] 
-[INFO] [1m--- [0;32mspring-boot-maven-plugin:2.4.4:repackage[m [1m(repackage)[m @ [36mspring-boot-maven-plugin[0;1m ---[m
-[INFO] Replacing main artifact with repackaged archive
-[INFO] [1m------------------------------------------------------------------------[m
-[INFO] [1;32mBUILD SUCCESS[m
-[INFO] [1m------------------------------------------------------------------------
 
 ============================================================================================================================================================================
 
