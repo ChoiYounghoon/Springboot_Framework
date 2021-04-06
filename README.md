@@ -68,6 +68,20 @@ C:\Users\HP>docker run -it docker.elastic.co/kibana/kibana:7.12.0 bash
 
 =========================================================================================
 
+8. docker image 생성 (windows 환경? PowerShell에서 작업)
+Dockerfile 파일생성 (확장자 x / 작업폴더는 )
+
+[파일내용]
+FROM azul/zulu-openjdk-alpine:11.0.7
+ARG JAR_FILE=./spring-boot-maven-plugin-2.5.0-SNAPSHOT.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
+
+[이미지 생성]
+docker build -t starterfly/gs-spring-boot-docker .
+
+=========================================================================================
+
 ■ Spingboot 에러 참고
 1) jdbc using password:YES ERROR
 해결방법 : jdbc datasource password 설정 부분 오타 확인
