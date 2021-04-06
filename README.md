@@ -1,11 +1,14 @@
 # Springboot_Framework
 
 1. 목적 : 데몬 프로그램 개발용 프레임워크
-
+           - Docker container 환경에서 mysql, elasticsearch, kibana 를 구성하고
+             springboot Framework 미들웨어를 개발하여, Docker 환경으로 배포
+	          * 해당 미들웨어는 DB 데이터를 읽어와 주기적으로 elasticsearch로 보낸다.
 ============================================================================================================================================================================
 
 2. 개발환경
   - IDE : Spring Tool Suite 4 
+  - Deploy : Docker v20.10.5
   - SpringBoot : 2.4.4 (lombok, mybatis, devtools)
   - Java : openjdk(zulu) 11
   - DB : MySql
@@ -22,7 +25,7 @@
 
 ============================================================================================================================================================================
 
-5. docker 에 mysql, elasticsearch + kibana 
+5. docker 에 mysql, elasticsearch + kibana (docker guide 참고 : https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html)
 ![image](https://user-images.githubusercontent.com/16375921/113255973-79a56700-9303-11eb-94dd-119f9d22ab99.png)
 
 ============================================================================================================================================================================
@@ -47,6 +50,9 @@ C:\Users\HP>docker run -it docker.elastic.co/kibana/kibana:7.12.0 bash
 
 6. STS mybatipse 플러그인 설치
   - mybatis mapper.xml 에서 repository를 ctrl 키로 바로가기 가능
+
+
+
 
 ■ Spingboot 에러 참고
 1) jdbc using password:YES ERROR
