@@ -82,6 +82,16 @@ docker build -t starterfly/gs-spring-boot-docker .
 
 =========================================================================================
 
+9. docker network 구성
+  - springboot container 에서 mysql container 로 접근에 필요한 환경구성
+
+![image](https://user-images.githubusercontent.com/16375921/113812514-320e5780-97a9-11eb-81b4-37fede685f41.png)
+* docke에서는 link 방식은 곧 사라질 예정이여서 network 구성을 추천함
+
+
+
+=========================================================================================
+
 ■ Spingboot 에러 참고
 1) jdbc using password:YES ERROR
 해결방법 : jdbc datasource password 설정 부분 오타 확인
