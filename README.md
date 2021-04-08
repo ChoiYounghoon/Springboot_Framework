@@ -86,3 +86,43 @@ docker build -t starterfly/gs-spring-boot-docker .
 docke 공식사이트에서는 link 방식은 곧 사라질 예정으로 network 구성을 추천
 ```
 ![image](https://user-images.githubusercontent.com/16375921/113812514-320e5780-97a9-11eb-81b4-37fede685f41.png)
+
+```
+Docker-compose 파일에서 network 연결 (springboot 컨테이너에서 mysql db 컨테이너 접속)
+
+version: "3.7" # 파일 규격 버전
+services: # 이 항목 밑에 실행하려는 컨테이너 들을 정의
+  db: # 서비스 명
+    image: mysql # 사용할 이미지
+    container_name: starterfly-mysql # 컨테이너 이름 설정
+    ports:
+      - "3306:3306" # 접근 포트 설정 (컨테이너 외부:컨테이너 내부)
+    environment: # -e 옵션
+      MYSQL_ROOT_PASSWORD: "1q2w3e4r"  # MYSQL 패스워드 설정 옵션
+    command: # 명령어 실행
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - /Users/hp/datadir:/var/lib/mysql # -v 옵션 (다렉토리 마운트 설정)
+    networks:     
+      - corn_net
+  back: # 서비스 명
+    image: starterfly/gs-spring-boot-docker # 사용할 이미지
+    container_name: starterfly-boot # 컨테이너 이름 설정
+    networks:      
+      - corn_net
+    depends_on:
+      - db
+    ports:
+      - "9091:80"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/v3sass?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&useUnicode=true&allowPublicKeyRetrieval=true
+      
+networks:
+  corn_net:
+    driver: bridge
+    
+```
+
+![image](https://user-images.githubusercontent.com/16375921/114003060-6876d000-9898-11eb-9c04-c712cbbd6f61.png)
+
