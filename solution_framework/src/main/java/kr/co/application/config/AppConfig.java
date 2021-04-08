@@ -1,16 +1,12 @@
 package kr.co.application.config;
 
-import java.io.File;
-import java.io.FileReader;
+import java.io.InputStream;
 import java.util.Properties;
 
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.springframework.stereotype.Component;
 
 import lombok.Data;
-import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 
@@ -39,16 +35,14 @@ public class AppConfig {
 	static void init() {
 		try {
 			
-			ClassLoader loader = AppConfig.class.getClassLoader();
-			
 			PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
 			Resource configResource = resolver.getResource("classpath:appconfig.properties");
 			
-			File file = configResource.getFile();
-			log.info("AppConfig Properties path : " + file.getAbsolutePath());
+			InputStream inputStream = configResource.getInputStream();
+			log.info("AppConfig Properties File Name : " + configResource.getFilename());
 			
 			Properties props = new Properties();
-			props.load(new FileReader(file));
+			props.load(inputStream);
 			
 			instance.name = props.getProperty("app.name");
 			instance.description = props.getProperty("app.description");

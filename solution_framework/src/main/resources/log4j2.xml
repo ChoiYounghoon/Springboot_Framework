@@ -21,11 +21,7 @@
 </Appenders>
 
 <Loggers>
-	<!-- 스프링 프레임워크에서 찍는건 level을 info로 설정 -->
-	<logger name="org.springframework" level="info" additivity="false" >
-		<AppenderRef ref="console" />
-		<AppenderRef ref="file" />
-	</logger>
+	
 	 
 	<!-- 다른 기본 패키지도 설정 제어 가능하다. -->
 	<logger name="org.apache.commons.digester" level="info" additivity="false" >
@@ -39,15 +35,7 @@
 		<AppenderRef ref="file" level="info" />
 	</logger>
 	
-	<!-- log4jdbc-log4j2 -->
-    <logger name="jdbc.sqlonly"    level="DEBUG"/>
-    <logger name="jdbc.sqltiming" level="INFO"/>
-    <logger name="jdbc.audit"    level="WARN"/>
-    <logger name="jdbc.resultset" level="ERROR"/>
-    <logger name="jdbc.resultsettable" level="ERROR"/>
-    <logger name="jdbc.connection" level="INFO"/>
-
-
+	
 	<!-- 기본 레벨은 debug -->
 	<Root level="INFO" additivity="false" >
 		<AppenderRef ref="console" />
